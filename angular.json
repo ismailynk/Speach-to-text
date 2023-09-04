@@ -93,6 +93,100 @@
           }
         }
       }
+    },
+    "Speach": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/speach",
+      "sourceRoot": "projects/speach/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/speach",
+            "index": "projects/speach/src/index.html",
+            "main": "projects/speach/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/speach/tsconfig.app.json",
+            "assets": [
+              "projects/speach/src/favicon.ico",
+              "projects/speach/src/assets"
+            ],
+            "styles": [
+              "projects/speach/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "Speach:build:production"
+            },
+            "development": {
+              "browserTarget": "Speach:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "Speach:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/speach/tsconfig.spec.json",
+            "assets": [
+              "projects/speach/src/favicon.ico",
+              "projects/speach/src/assets"
+            ],
+            "styles": [
+              "projects/speach/src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
     }
+  },
+  "cli": {
+    "analytics": "3013b6fd-c22a-4a80-aafa-5e5f6d0881fb"
   }
 }

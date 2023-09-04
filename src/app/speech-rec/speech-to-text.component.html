@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div style="margin: 100px;">
+
+  <h1>Sohbet Robotu</h1>
+  <button style="margin: 10px;" (click)="startService()">Başlat</button>
+  <button style="margin: 10px;" (click)="stopService()">Durdur</button>
+
+<div class="grid">
+  <div class="col-6">
+  <div class="card flex justify-content-center">
+    <p-card header="Fatih Yıldız" [style]="{ width: '360px' }">
+      <ng-template pTemplate="header">
+        <img
+          alt="Card"
+          src="https://cdn.dribbble.com/users/587589/screenshots/11244192/carter_2_300_perc.png"
+        />
+      </ng-template>
+      <h3>{{service.tempWords}}</h3>
+    </p-card>
+  </div>
+</div>
+  <div class="col-6">
+    <div class="card bg-blue-300 flex justify-content-center">
+      <p-card header="ChatBot" [style]="{ width: '360px' }">
+        <ng-template pTemplate="header">
+          <img
+            alt="Card"
+            src="https://media.istockphoto.com/id/1191411962/vector/cute-robot.jpg?s=612x612&w=0&k=20&c=KelCNJMam1XGwVM0HclQtHIHZxByJZOtnRjkBbHrAKw="
+          />
+        </ng-template>
+        <h3>{{service.bottext}}</h3>
+      </p-card>
+    </div>
+  </div>
+</div>
+
+
+</div>
+
+</body>
+</html>
