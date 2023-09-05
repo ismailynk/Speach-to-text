@@ -36,7 +36,7 @@ export class VoiceRecognitionService {
       this.tempWords = transcript;
       console.log(this.transcript_arr);
 
-      this.parse(this.tempWords);
+
       this.tanimla();
 
       const confidence = Array.from(e.results)
@@ -77,18 +77,11 @@ export class VoiceRecognitionService {
     }
     return false;
   }
-  yazdır(){
-    this.wordConcat();
-  }
-  parse(parse_string : string){
 
-    this.string_parsed = parse_string.split(' ');
-    for (var index in this.string_parsed ){
-    this.text = this.string_parsed[index];
-    }
 
-  }
   tanimla(){
+    this.string_parsed = this.tempWords.split(' ');
+    console.log('Son Cümle ::: '+this.string_parsed[this.string_parsed.length-1])
     for (var index in this.hedef_arr){
       if (this.string_parsed[this.string_parsed.length-1].toLowerCase() == this.hedef_arr[index].toLowerCase()){
         this.bottext=this.karsilik_arr[index];

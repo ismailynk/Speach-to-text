@@ -22,7 +22,5 @@ export class SpeechToTextComponent implements OnInit {
     this.isStillRecoginze = this.service.stop() === false ? false : true;
   }
 
-  yazdirService(){
-    this.service.yazdır();
-  }
+
 }
