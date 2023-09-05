@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { SpeechToTextComponent } from './speech-rec/speech-to-text.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CardModule } from 'primeng/card';
+import { InputTextModule } from 'primeng/inputtext';
+import { ButtonModule } from 'primeng/button';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { CardModule } from 'primeng/card';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CardModule
+    CardModule,
+    InputTextModule,
+    ButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

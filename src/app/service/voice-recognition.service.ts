@@ -18,6 +18,7 @@ export class VoiceRecognitionService {
   confidence_arr : string[] = [];
   karsilik_arr: string[] = ['Merhaba!', 'İyiyim Sen nasılsın?', 'Evet duyuyorum.'];
   hedef_arr : string[] = ['merhaba' , 'nasılsın' , 'duyuyor'];
+
   isStarted = false; //<< this Flag to check if the user stop the service
   isStoppedAutomatically = true; //<< this Flag to check if the service stopped automaticically.
   constructor() {}
@@ -77,13 +78,18 @@ export class VoiceRecognitionService {
     }
     return false;
   }
-
+ add(hedef : string , karsilik : string){
+   if (hedef && karsilik) {
+     this.hedef_arr.push(hedef);
+     this.karsilik_arr.push(karsilik);
+   }
+ }
 
   tanimla(){
     this.string_parsed = this.tempWords.split(' ');
     console.log('Son Cümle ::: '+this.string_parsed[this.string_parsed.length-1])
     for (var index in this.hedef_arr){
-      if (this.string_parsed[this.string_parsed.length-1].toLowerCase() == this.hedef_arr[index].toLowerCase()){
+      if (this.string_parsed[this.string_parsed.length-1].toLowerCase()  == this.hedef_arr[index].toLowerCase()){
         this.bottext=this.karsilik_arr[index];
       }
     }

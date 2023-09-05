@@ -10,36 +10,56 @@
   <h1>Sohbet Robotu</h1>
   <button style="margin: 10px;" (click)="startService()">Başlat</button>
   <button style="margin: 10px;" (click)="stopService()">Durdur</button>
-
 <div class="grid">
   <div class="col-6">
-  <div class="card flex justify-content-center">
-    <p-card header="Fatih Yıldız" [style]="{ width: '360px' }">
-      <ng-template pTemplate="header">
-        <img
-          alt="Card"
-          src="https://cdn.dribbble.com/users/587589/screenshots/11244192/carter_2_300_perc.png"
-        />
-      </ng-template>
-      <h3>{{service.tempWords}}</h3>
-    </p-card>
+
+    <div class="grid">
+      <div class="col-6">
+        <div class="card flex justify-content-center">
+          <p-card header="Fatih Yıldız" [style]="{ width: '360px' }">
+            <ng-template pTemplate="header">
+              <img style="max-width: 100px"
+                   alt="Card"
+                   src="https://cdn.dribbble.com/users/587589/screenshots/11244192/carter_2_300_perc.png"
+              />
+            </ng-template>
+            <h3>{{service.tempWords}}</h3>
+          </p-card>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="card  flex justify-content-center">
+          <p-card header="ChatBot" [style]="{ width: '360px' ,  }">
+            <ng-template pTemplate="header">
+              <img style="max-width: 100px"
+                   alt="Card"
+                   src="https://media.istockphoto.com/id/1191411962/vector/cute-robot.jpg?s=612x612&w=0&k=20&c=KelCNJMam1XGwVM0HclQtHIHZxByJZOtnRjkBbHrAKw="
+              />
+            </ng-template>
+            <h3>{{service.bottext}}</h3>
+          </p-card>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
   <div class="col-6">
-    <div class="card bg-blue-300 flex justify-content-center">
-      <p-card header="ChatBot" [style]="{ width: '360px' }">
-        <ng-template pTemplate="header">
-          <img
-            alt="Card"
-            src="https://media.istockphoto.com/id/1191411962/vector/cute-robot.jpg?s=612x612&w=0&k=20&c=KelCNJMam1XGwVM0HclQtHIHZxByJZOtnRjkBbHrAKw="
-          />
-        </ng-template>
-        <h3>{{service.bottext}}</h3>
-      </p-card>
+  <h3>Hedef Kelime yerine tanımlamak istediğin kelimeyi karşılık yerinede karşılığında duymak istediğin kelimeyi yazarak diziye ekleyebilirsin</h3>
+    <div class="grid">
+      <input #hedef pInputText type="text" class="pr-2 col-4 p-inputtext-lg" placeholder="Hedef Kelime"  />
+      <input #karsilik pInputText type="text" class="pr-2 col-4 p-inputtext-lg" placeholder="Karşılık"  />
+      <p-button class="col-4" label="Ekle" (click)="service.add(hedef.value,karsilik.value)"icon="pi pi-check"></p-button>
+    </div>
+    <div class="grid">
+      <div class="col-6">
+        <ul class="bg-primary-600 col-12" *ngFor="let hero of service.hedef_arr" ><li >{{hero}}</li></ul>
+      </div>
+      <div class="col-6">
+        <ul class="bg-yellow-600 col-12" *ngFor="let item of service.karsilik_arr" ><li >{{item}}</li></ul>
+      </div>
+
     </div>
   </div>
 </div>
-
 
 </div>
 
